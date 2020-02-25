@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Log In to App</title>
+</head>
+<body>
+    <div th:if="${error}">Logowanie nieudane, try again</div>
+    <p>Are you new here? Click <a th:href="@{/registration}">>>>HERE<<<</a> to sign up.</p>
+
+    <form method="post" th:action="@{/login}" id="loginForm">
+        <label for="email">Enter Your email here: </label>
+        <input id="email" type="text" name="email"/>
+        <br/>
+        <label for="password">Enter Your password here: </label>
+        <input id="password" type="password" name="password"/>
+        <br/>
+        <input type="submit" value="Log in"/>
+    </form>
+</body>
+</html>
