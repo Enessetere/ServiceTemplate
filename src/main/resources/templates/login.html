@@ -5,12 +5,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Log In to App</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
 </head>
 <body>
-    <div th:if="${error}">Logowanie nieudane, try again</div>
+
     <p>Are you new here? Click <a th:href="@{/registration}">>>>HERE<<<</a> to sign up.</p>
 
-    <form method="post" th:action="@{/login}" id="loginForm">
+
+    <form method="post" id="loginForm" th:action="@{/login}">
+        <div th:if="${error}" class="validationError">Logowanie nieudane</div>
         <label for="email">Enter Your email here: </label>
         <input id="email" type="text" name="email"/>
         <br/>

@@ -1,5 +1,6 @@
 package com.erebus.registration.web;
 
+import com.erebus.registration.model.User;
 import com.erebus.registration.repository.UserRepository;
 import com.erebus.registration.security.RegistrationForm;
 import lombok.RequiredArgsConstructor;
@@ -43,7 +44,9 @@ public class RegistrationController {
             emailExistError(errors);
             return "registration";
         }
-        userRepository.save(form.toUser(passwordEncoder).correction());
+        final User correction = form.toUser(passwordEncoder).correction();
+        System.out.println(passwordEncoder.matches(form.getPassword(), correction.getPassword()));
+        userRepository.save(correction);
         return "redirect:/success";
     }
 

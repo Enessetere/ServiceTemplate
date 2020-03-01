@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class SuccessController {
 
     @GetMapping
-    private String success() {
+    private String success() throws InterruptedException {
         return "success";
     }
 }
