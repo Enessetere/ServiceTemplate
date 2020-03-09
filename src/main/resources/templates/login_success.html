@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Password project</title>
+</head>
+<body>
+<h2> You have been successfully logged in</h2>
+<form id="logoutForm" th:action="@{/logout}" method="post">
+    <input id="logout" type="submit" value="logout"/>
+</form>
+</body>
+</html>

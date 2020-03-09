@@ -32,20 +32,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                    .antMatchers("/loginSuccess")
+                    .antMatchers("/login_success")
                         .access("hasRole('ROLE_USER')")
                     .antMatchers("/", "/**", "/registration", "/success")
                         .access("permitAll")
                 .and()
                     .formLogin()
                         .loginPage("/login")
-                        .defaultSuccessUrl("/loginSuccess")
+                        .usernameParameter("email")
+                        .defaultSuccessUrl("/login_success")
+                        .failureUrl("/login?error=true")
                 .and()
                     .logout()
-                        .logoutSuccessUrl("/")
-                .and()
-                    .csrf()
-                        .disable();
+                        .logoutSuccessUrl("/");
     }
 
     @Bean

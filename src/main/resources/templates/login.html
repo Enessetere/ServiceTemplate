@@ -13,9 +13,9 @@
 
 
     <form method="post" id="loginForm" th:action="@{/login}">
-        <div th:if="${error}" class="validationError">Logowanie nieudane</div>
+        <div th:if="${error}"><span class="validationError">Logowanie nieudane</span></div>
         <label for="email">Enter Your email here: </label>
-        <input id="email" type="text" name="email"/>
+        <input id="email" type="email" name="email"/>
         <br/>
         <label for="password">Enter Your password here: </label>
         <input id="password" type="password" name="password"/>

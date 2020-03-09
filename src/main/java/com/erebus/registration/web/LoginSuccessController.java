@@ -1,0 +1,15 @@
+package com.erebus.registration.web;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/login_success")
+public class LoginSuccessController {
+
+    @GetMapping
+    private String loginSuccess() {
+        return "login_success";
+    }
+}

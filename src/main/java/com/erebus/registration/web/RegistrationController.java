@@ -1,6 +1,5 @@
 package com.erebus.registration.web;
 
-import com.erebus.registration.model.User;
 import com.erebus.registration.repository.UserRepository;
 import com.erebus.registration.security.RegistrationForm;
 import lombok.RequiredArgsConstructor;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import javax.validation.Valid;
 
 @Controller
@@ -44,9 +42,7 @@ public class RegistrationController {
             emailExistError(errors);
             return "registration";
         }
-        final User correction = form.toUser(passwordEncoder).correction();
-        System.out.println(passwordEncoder.matches(form.getPassword(), correction.getPassword()));
-        userRepository.save(correction);
+        userRepository.save(form.toUser(passwordEncoder).correction());
         return "redirect:/success";
     }
 

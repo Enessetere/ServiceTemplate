@@ -47,6 +47,8 @@
         <span class="validationError" th:if="${#fields.hasErrors('global')}" th:errors="*{global}">Password mismatch</span>
         <br/>
 
+<!--        <csrf/>-->
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
         <input type="submit" value="register"/>
     </form>
 </body>
